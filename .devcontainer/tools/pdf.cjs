@@ -72,7 +72,7 @@ async function renderPdf(input, { root = process.cwd() } = {}) {
     const renderedCount = await page.locator('.mermaid svg').count();
     if (renderedCount !== diagramCount) throw new Error('Some Mermaid diagrams did not render');
     if (externalRequests.length) throw new Error(`External assets are disabled: ${externalRequests.join(', ')}`);
-    const output = path.join(root, 'pdf_build', path.relative(root, source).replace(/\.md$/i, '.pdf'));
+    const output = path.join(root, 'pdf_output', path.relative(root, source).replace(/\.md$/i, '.pdf'));
     let existingParent = path.dirname(output);
     while (true) {
       try {
@@ -98,7 +98,7 @@ module.exports = { renderPdf, assertInside };
 if (require.main === module) {
   const args = process.argv.slice(2);
   if (args.length !== 1 || args[0] === '--help') {
-    console.log('Usage: docs-pdf path/to/document.md\nOutput: pdf_build/path/to/document.pdf (replaced on each successful export)');
+    console.log('Usage: md2pdf path/to/document.md\nOutput: pdf_output/path/to/document.pdf (replaced on each successful export)');
     process.exitCode = args[0] === '--help' ? 0 : 1;
   } else {
     renderPdf(args[0]).then(({ output, diagramCount, bytes }) => {

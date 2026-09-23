@@ -21,7 +21,7 @@ test('PDF export renders Mermaid and local images, rejects invalid or external c
   const result = await renderPdf('docs/sample.md', { root });
   assert.equal(result.diagramCount, 1);
   assert.ok(result.bytes > 5000);
-  assert.equal(result.output, path.join(root, 'pdf_build/docs/sample.pdf'));
+  assert.equal(result.output, path.join(root, 'pdf_output/docs/sample.pdf'));
   assert.equal((await fs.readFile(result.output)).subarray(0, 5).toString(), '%PDF-');
   await renderPdf('docs/sample.md', { root });
   await fs.writeFile(source, '# Invalid\n\n```mermaid\nnot valid mermaid !!!\n```\n');

@@ -15,7 +15,7 @@ RUN npm ci --ignore-scripts --no-audit --no-fund && npm cache clean --force
 COPY .devcontainer/tools/pdf.cjs .devcontainer/tools/print.css .devcontainer/tools/check-isolation.cjs .devcontainer/tools/github-setup.sh ./
 COPY .devcontainer/tools/test ./test
 RUN chmod 755 pdf.cjs check-isolation.cjs github-setup.sh \
-    && ln -s /opt/docs-tools/pdf.cjs /usr/local/bin/docs-pdf \
+    && ln -s /opt/docs-tools/pdf.cjs /usr/local/bin/md2pdf \
     && ln -s /opt/docs-tools/check-isolation.cjs /usr/local/bin/docs-check \
     && ln -s /opt/docs-tools/github-setup.sh /usr/local/bin/docs-github-setup \
     && ln -s /opt/docs-tools/node_modules/.bin/markdownlint-cli2 /usr/local/bin/docs-lint \

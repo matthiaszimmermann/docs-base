@@ -1,5 +1,5 @@
 node_modules/
-pdf_build/
+pdf_output/
 .claude/settings.local.json
 .DS_Store
 

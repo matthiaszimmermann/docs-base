@@ -16,7 +16,7 @@ This repository is for Markdown documentation. Ask before making substantial ass
 
 ## PDF Export
 
-Follow `.agents/skills/export-pdf/SKILL.md`. Run `docs-pdf "docs/document.md"` from the repository root. Output is `pdf_build/docs/document.pdf`; the command replaces that generated PDF on a successful export.
+Follow `.agents/skills/export-pdf/SKILL.md`. Run `md2pdf "docs/document.md"` from the repository root. Output is `pdf_output/docs/document.pdf`; the command replaces that generated PDF on a successful export.
 
 ## Validation
 
