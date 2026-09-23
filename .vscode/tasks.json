@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docs: Export Current Markdown to PDF",
+      "type": "process",
+      "command": "docs-pdf",
+      "args": ["${file}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Docs: Lint Markdown",
+      "type": "process",
+      "command": "docs-lint",
+      "args": [],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Set Up GitHub Access",
+      "type": "process",
+      "command": "docs-github-setup",
+      "args": [],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "focus": true, "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: Check Isolation",
+      "type": "process",
+      "command": "docs-check",
+      "args": [],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+services:
+  gateway:
+    build: ./gateway
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN, SETUID, SETGID, SETPCAP]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=64m,mode=1777
+    healthcheck:
+      test: [CMD-SHELL, "test \"$$(curl -s -o /dev/null -w '%{http_connect}' --max-time 3 -x http://127.0.0.1:3128 https://example.com)\" = 403"]
+      interval: 5s
+      timeout: 4s
+      retries: 5
+    pids_limit: 128
+    mem_limit: 256m
+
+  workspace:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    network_mode: service:gateway
+    depends_on:
+      gateway:
+        condition: service_healthy
+    user: node
+    init: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    volumes:
+      - ..:/workspace
+      - home:/home/node
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,size=1g,mode=1777
+    shm_size: 256m
+    pids_limit: 512
+    mem_limit: 4g
+    environment:
+      HTTP_PROXY: http://127.0.0.1:3128
+      HTTPS_PROXY: http://127.0.0.1:3128
+      http_proxy: http://127.0.0.1:3128
+      https_proxy: http://127.0.0.1:3128
+      NO_PROXY: localhost,127.0.0.1,::1
+      no_proxy: localhost,127.0.0.1,::1
+
+volumes:
+  home:

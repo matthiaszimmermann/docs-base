@@ -1,0 +1,17 @@
+{
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": { "comments": "off", "strings": "off", "other": "off" },
+    "editor.tabSize": 2
+  },
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "markdown.preview.breaks": false,
+  "markdown.preview.scrollPreviewWithEditor": true,
+  "markdown.preview.scrollEditorWithPreview": true,
+  "markdown.validate.enabled": true,
+  "git.autofetch": false,
+  "task.allowAutomaticTasks": "off",
+  "remote.autoForwardPorts": false
+}

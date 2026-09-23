@@ -1,0 +1,9 @@
+**
+!.devcontainer/managed-settings.json
+!.devcontainer/tools/package.json
+!.devcontainer/tools/package-lock.json
+!.devcontainer/tools/pdf.cjs
+!.devcontainer/tools/print.css
+!.devcontainer/tools/check-isolation.cjs
+!.devcontainer/tools/github-setup.sh
+!.devcontainer/tools/test/*.test.cjs

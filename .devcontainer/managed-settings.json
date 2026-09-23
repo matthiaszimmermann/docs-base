@@ -1,0 +1,15 @@
+{
+  "forceLoginMethod": "claudeai",
+  "disableClaudeAiConnectors": true,
+  "disableRemoteControl": true,
+  "enableArtifact": false,
+  "syncClaudeAiSkills": false,
+  "syncClaudeAiPlugins": false,
+  "allowManagedMcpServersOnly": true,
+  "allowedMcpServers": [],
+  "strictKnownMarketplaces": [],
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+    "deny": ["WebSearch", "WebFetch", "mcp__claude-in-chrome__*"]
+  }
+}

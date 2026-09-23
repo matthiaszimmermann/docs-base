@@ -1,0 +1,25 @@
+name: Check documentation template
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build and start isolated workspace
+        run: docker compose -p docs-ci -f .devcontainer/compose.yaml up --build --wait
+      - name: Check Markdown, PDF rendering, and isolation
+        run: |
+          docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-lint
+          docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-test
+          docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-check
+      - name: Stop test containers
+        if: always()
+        run: docker compose -p docs-ci -f .devcontainer/compose.yaml down --volumes

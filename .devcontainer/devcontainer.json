@@ -1,0 +1,26 @@
+{
+  "name": "Markdown Docs",
+  "dockerComposeFile": "compose.yaml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true,
+  "overrideCommand": false,
+  "shutdownAction": "stopCompose",
+  "userEnvProbe": "none",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "bierner.markdown-mermaid",
+        "DavidAnson.vscode-markdownlint"
+      ],
+      "settings": {
+        "remote.autoForwardPorts": false,
+        "git.autofetch": false,
+        "extensions.autoUpdate": false,
+        "http.proxy": "http://127.0.0.1:3128"
+      }
+    }
+  }
+}
