@@ -17,7 +17,7 @@ COPY .devcontainer/tools/test ./test
 RUN chmod 755 pdf.cjs check-isolation.cjs github-setup.sh \
     && ln -s /opt/docs-tools/pdf.cjs /usr/local/bin/md2pdf \
     && ln -s /opt/docs-tools/check-isolation.cjs /usr/local/bin/docs-check \
-    && ln -s /opt/docs-tools/github-setup.sh /usr/local/bin/docs-github-setup \
+    && ln -s /opt/docs-tools/github-setup.sh /usr/local/bin/github-setup \
     && ln -s /opt/docs-tools/node_modules/.bin/markdownlint-cli2 /usr/local/bin/docs-lint \
     && printf '#!/bin/sh\nexec node --test /opt/docs-tools/test/*.test.cjs\n' > /usr/local/bin/docs-test \
     && chmod 755 /usr/local/bin/docs-test

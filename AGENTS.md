@@ -11,7 +11,7 @@ This repository is for Markdown documentation. Ask before making substantial ass
 - Research is denied initially. Report blocked destinations and ask a human to follow `docs/security.md`; never weaken network controls yourself.
 - Ask before changing `.devcontainer/`, `.vscode/`, dependency manifests, security checks, or agent policies. Never trigger a rebuild or execute host-side setup.
 - Preserve unrelated edits. Do not commit, push, open pull requests, publish, or run destructive Git commands (force-push, `reset --hard`, rewriting pushed history, deleting branches) without an explicit request.
-- Never read, print, or change GitHub credentials or `gh auth` state. The human runs `docs-github-setup`.
+- Never read, print, or change GitHub credentials or `gh auth` state. The human runs `github-setup`.
 - Do not connect host browsers, host MCP servers, Docker sockets, SSH agents, or other repositories.
 
 ## PDF Export

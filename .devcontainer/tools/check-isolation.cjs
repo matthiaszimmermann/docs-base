@@ -22,7 +22,7 @@ assert.throws(() => fs.accessSync('/usr/local/bin', fs.constants.W_OK));
 assert.throws(() => fs.accessSync('/opt/docs-tools', fs.constants.W_OK));
 const helpers = spawnSync('git', ['config', '--get-all', 'credential.helper'], { encoding: 'utf8' });
 assert.equal(helpers.stdout.trim(), '', 'Disable host Git credential helper forwarding');
-// Only gh's helper for GitHub (set by docs-github-setup) may hold credentials.
+// Only gh's helper for GitHub (set by github-setup) may hold credentials.
 const scopedHelpers = spawnSync('git', ['config', '--get-regexp', '^credential\\..+\\.helper$'], { encoding: 'utf8' });
 for (const line of scopedHelpers.stdout.split('\n').filter(Boolean)) {
   assert.match(line, /^credential\.https:\/\/(gist\.)?github\.com\.helper( ?| !\S*gh auth git-credential)$/, `Unexpected Git credential helper: ${line}`);

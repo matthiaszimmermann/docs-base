@@ -10,7 +10,7 @@ A VS Code template for Markdown documentation with Mermaid previews and offline 
 4. Open the repository root in VS Code and run **Dev Containers: Reopen in Container**. Only the image build has open internet access.
 5. Check that the status bar shows **Dev Container: Markdown Docs**, then run `docs-check` and the host-side review in [the security guide](docs/security.md#verify-before-auto-mode).
 6. Run `claude` and sign in with your **Claude subscription** (no API key needed). Never paste login codes or tokens into an agent conversation.
-7. Run `docs-github-setup` to connect Git and `gh` (see [Git and GitHub](#git-and-github)).
+7. Run `github-setup` to connect Git and `gh` (see [Git and GitHub](#git-and-github)).
 8. Optionally select **Auto** permission mode. Bypass-permissions mode is disabled.
 
 Login state and history live in a per-project Docker home volume that survives rebuilds. Don't share it across repositories or users.
@@ -35,7 +35,7 @@ The output folder `pdf_output/` and all subfolders are Git-ignored.
 
 ## Git and GitHub
 
-Run `docs-github-setup` once in the container. It sets your Git identity, rewrites SSH remotes to HTTPS, and stores a **fine-grained token** that you type in yourself. Scope the token to this repository with **Contents: read/write** and an expiry date. The agent can use this token too, so protect your default branch and revoke the token if you suspect misuse.
+Run `github-setup` once in the container. It sets your Git identity, rewrites SSH remotes to HTTPS, and stores a **fine-grained token** that you type in yourself. Scope the token to this repository with **Contents: read/write** and an expiry date. The agent can use this token too, so protect your default branch and revoke the token if you suspect misuse.
 
 ## Checks
 
