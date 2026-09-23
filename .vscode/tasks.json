@@ -30,7 +30,7 @@
     {
       "label": "Docs: Check Isolation",
       "type": "process",
-      "command": "docs-check",
+      "command": "setup-check",
       "args": [],
       "options": { "cwd": "${workspaceFolder}" },
       "problemMatcher": []

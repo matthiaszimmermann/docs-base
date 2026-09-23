@@ -19,7 +19,7 @@ jobs:
         run: |
           docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-lint
           docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-test
-          docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace docs-check
+          docker compose -p docs-ci -f .devcontainer/compose.yaml exec -T workspace setup-check
       - name: Stop test containers
         if: always()
         run: docker compose -p docs-ci -f .devcontainer/compose.yaml down --volumes

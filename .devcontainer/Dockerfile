@@ -8,6 +8,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && npm install -g npm@${NPM_VERSION} \
     && npm install -g @anthropic-ai/claude-code@${CLAUDE_VERSION} \
+    && node /usr/local/lib/node_modules/@anthropic-ai/claude-code/install.cjs \
+    && claude --version \
     && npm cache clean --force
 WORKDIR /opt/docs-tools
 COPY .devcontainer/tools/package.json .devcontainer/tools/package-lock.json ./
@@ -16,7 +18,7 @@ COPY .devcontainer/tools/pdf.cjs .devcontainer/tools/print.css .devcontainer/too
 COPY .devcontainer/tools/test ./test
 RUN chmod 755 pdf.cjs check-isolation.cjs github-setup.sh \
     && ln -s /opt/docs-tools/pdf.cjs /usr/local/bin/md2pdf \
-    && ln -s /opt/docs-tools/check-isolation.cjs /usr/local/bin/docs-check \
+    && ln -s /opt/docs-tools/check-isolation.cjs /usr/local/bin/setup-check \
     && ln -s /opt/docs-tools/github-setup.sh /usr/local/bin/github-setup \
     && ln -s /opt/docs-tools/node_modules/.bin/markdownlint-cli2 /usr/local/bin/docs-lint \
     && printf '#!/bin/sh\nexec node --test /opt/docs-tools/test/*.test.cjs\n' > /usr/local/bin/docs-test \

@@ -45,4 +45,4 @@ for (const domain of ['api.anthropic.com', 'claude.ai', 'claude.com', 'platform.
   assert.equal(result.status, 0, `TLS must validate for ${domain}: ${result.stderr}`);
 }
 console.log('PASS: unprivileged runtime, protected tools, denied research/direct egress/DNS, allowed Claude and GitHub TLS.');
-console.log('Also inspect host mounts, VS Code forwarding, and loaded agent tools as described in docs/security.md.');
+console.log('Also inspect host mounts, VS Code forwarding, and loaded agent tools as described in .devcontainer/SECURITY.md.');
